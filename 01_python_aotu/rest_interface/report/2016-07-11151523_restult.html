@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>测试报告</h1>
+<p class='attribute'><strong>Start Time:</strong> 2016-07-11 15:38:23</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:00.200000</p>
+<p class='attribute'><strong>Status:</strong> Pass 5</p>
+
+<p class='description'>用例执行情况：</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_baseConfigKey.TestAdd: 测试baseConfigKey</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_getNavigation: 测试baseConfigKey接口</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: test start
+********************************************************************************
+baseSysConfig
+********************************************************************************
+baseSysConfig &lt;===&gt; None
+********************************************************************************
+********************************************************************************
+http://10.1.0.44/middlecenter/service/guest/api/v1/auth/sysConfig/baseConfigKey
+test end
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_newqueryvcf.TestAdd: 测试newqueryvcf接口</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',1)">Detail</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_getNavigation: 测试newqueryvcf</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+        pass</a>
+
+    <div id='div_pt2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.1: test start
+pageIndex
+rows
+pageSize
+totalRows
+totalPage
+restCount
+empty
+pageIndex &lt;===&gt; 0
+rows &lt;===&gt; []
+pageSize &lt;===&gt; 10
+totalRows &lt;===&gt; 0
+totalPage &lt;===&gt; 0
+restCount &lt;===&gt; 0
+empty &lt;===&gt; True
+http://10.1.0.44/middlecenter/service/guest/api/v1/video/ZyVideo/newqueryvcf
+test end
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_queryBaseTypeList.TestAdd: 测试queryBaseTypeList</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c3',1)">Detail</a></td>
+</tr>
+
+<tr id='pt3.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_getNavigation: 测试queryBaseTypeList</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.1')" >
+        pass</a>
+
+    <div id='div_pt3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.1: test start
+********************************************************************************
+pageIndex
+rows
+pageSize
+totalRows
+totalPage
+restCount
+empty
+********************************************************************************
+pageIndex &lt;===&gt; 1
+rows &lt;===&gt; [{u'status': 1, u'statistics': None, u'uuid': u'd309aece-f56c-42f7-ade1-bf4bc77217bd', u'typeCode': u'0101', u'typeName': u'\u5c0f\u5b66', u'kindId': u'1ca5ef9a-bf7b-4685-953c-b86ba662ecbe', u'baseKind': [{u'status': None, u'description': None, u'kindName': u'\u5b66\u6821\u7c7b\u578b', u'uuid': None, u'kindCode': None}], u'kindCode': u'01', u'description': u'\u5c0f\u5b66'}, {u'status': 1, u'statistics': None, u'uuid': u'c78abe27-3404-43c0-b3c3-6b551d29415c', u'typeCode': u'0102', u'typeName': u'\u4e2d\u5b66', u'kindId': u'1ca5ef9a-bf7b-4685-953c-b86ba662ecbe', u'baseKind': [{u'status': None, u'description': None, u'kindName': u'\u5b66\u6821\u7c7b\u578b', u'uuid': None, u'kindCode': None}], u'kindCode': u'01', u'description': u'\u4e2d\u5b66'}, {u'status': 1, u'statistics': None, u'uuid': u'797f9577-47c4-4a85-aa55-8abe43dfedc9', u'typeCode': u'0103', u'typeName': u'\u9ad8\u4e2d', u'kindId': u'1ca5ef9a-bf7b-4685-953c-b86ba662ecbe', u'baseKind': [{u'status': None, u'description': None, u'kindName': u'\u5b66\u6821\u7c7b\u578b', u'uuid': None, u'kindCode': None}], u'kindCode': u'01', u'description': u'\u9ad8\u4e2d'}, {u'status': 1, u'statistics': None, u'uuid': u'c5da4603-934d-4a6c-a705-4d7a0864122e', u'typeCode': u'0104', u'typeName': u'\u6559\u80b2\u5c40', u'kindId': u'1ca5ef9a-bf7b-4685-953c-b86ba662ecbe', u'baseKind': [{u'status': None, u'description': None, u'kindName': u'\u5b66\u6821\u7c7b\u578b', u'uuid': None, u'kindCode': None}], u'kindCode': u'01', u'description': u'\u6559\u80b2\u5c40'}, {u'status': 1, u'statistics': None, u'uuid': u'bbc45919-73bf-4c84-b56f-eec044314456', u'typeCode': u'0201', u'typeName': u'\u4e92\u52a8\u6559\u5ba4', u'kindId': u'fd677b65-fa22-4b49-a7dd-2896e25bae52', u'baseKind': [{u'status': None, u'description': None, u'kindName': u'\u6559\u5ba4\u7c7b\u578b', u'uuid': None, u'kindCode': None}], u'kindCode': u'02', u'description': u'\u4e92\u52a8\u6559\u5ba4'}, {u'status': 1, u'statistics': None, u'uuid': u'4573e248-11d8-431f-8335-611fbdd43b45', u'typeCode': u'0202', u'typeName': u'\u5f55\u64ad\u6559\u5ba4', u'kindId': u'fd677b65-fa22-4b49-a7dd-2896e25bae52', u'baseKind': [{u'status': None, u'description': None, u'kindName': u'\u6559\u5ba4\u7c7b\u578b', u'uuid': None, u'kindCode': None}], u'kindCode': u'02', u'description': u'\u5f55\u64ad\u6559\u5ba4'}, {u'status': 1, u'statistics': None, u'uuid': u'c92c65b1-eb52-4a3d-b817-a56a81023d1f', u'typeCode': u'0203', u'typeName': u'\u542c\u8bfe\u6559\u5ba4', u'kindId': u'fd677b65-fa22-4b49-a7dd-2896e25bae52', u'baseKind': [{u'status': None, u'description': None, u'kindName': u'\u6559\u5ba4\u7c7b\u578b', u'uuid': None, u'kindCode': None}], u'kindCode': u'02', u'description': u'\u542c\u8bfe\u6559\u5ba4'}, {u'status': 1, u'statistics': None, u'uuid': u'7136e4a6-42dc-4d46-b739-e34557406314', u'typeCode': u'0204', u'typeName': u'\u4f1a\u8bae\u5ba4', u'kindId': u'fd677b65-fa22-4b49-a7dd-2896e25bae52', u'baseKind': [{u'status': None, u'description': None, u'kindName': u'\u6559\u5ba4\u7c7b\u578b', u'uuid': None, u'kindCode': None}], u'kindCode': u'02', u'description': u'\u4f1a\u8bae\u5ba4'}, {u'status': 1, u'statistics': None, u'uuid': u'7406b517-7765-4cfb-a1ce-aadf0b0929b7', u'typeCode': u'0301', u'typeName': u'\u5f55\u64ad', u'kindId': u'69fcdc07-5249-45fe-b8d2-499a11f0e408', u'baseKind': [{u'status': None, u'description': None, u'kindName': u'\u8bbe\u5907\u7c7b\u578b', u'uuid': None, u'kindCode': None}], u'kindCode': u'03', u'description': u'\u5f55\u64ad'}, {u'status': 1, u'statistics': None, u'uuid': u'da1d4c26-f98d-4d78-a30a-96746ae7a345', u'typeCode': u'0302', u'typeName': u'\u7ec8\u7aef', u'kindId': u'69fcdc07-5249-45fe-b8d2-499a11f0e408', u'baseKind': [{u'status': None, u'description': None, u'kindName': u'\u8bbe\u5907\u7c7b\u578b', u'uuid': None, u'kindCode': None}], u'kindCode': u'03', u'description': u'\u7ec8\u7aef'}]
+pageSize &lt;===&gt; 10
+totalRows &lt;===&gt; 54
+totalPage &lt;===&gt; 6
+restCount &lt;===&gt; 44
+empty &lt;===&gt; False
+********************************************************************************
+********************************************************************************
+http://10.1.0.44/middlecenter/service/guest/api/v1/base/baseType/queryBaseTypeList
+test end
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_select.TestAdd: 测试select接口</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c4',1)">Detail</a></td>
+</tr>
+
+<tr id='pt4.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_getNavigation: 测试select接口</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.1')" >
+        pass</a>
+
+    <div id='div_pt4.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.1: test start
+pageIndex
+rows
+pageSize
+totalRows
+totalPage
+restCount
+empty
+pageIndex &lt;===&gt; 1
+rows &lt;===&gt; [{u'areaId': u'879', u'infoType': 0, u'platMarkCode': u'001', u'platmarkName': u'\u6c5f\u82cf\u6559\u80b2\u5c40', u'serialNumber': u'\u6d4b\u8bd5\u6570\u636e\u5982\u679c\u653e\u4f1a\u63d0\u793a\u4e0d\u80fd\u4e3a\u7a7a', u'isMaster': 0, u'areaxz': {u'status': 1, u'uuid': u'879', u'level': 2, u'areaCode': u'320000', u'parentUuid': u'1', u'expand': False, u'areaName': u'\u6c5f\u82cf\u7701'}, u'activateCode': u'\u6d4b\u8bd5\u6570\u636e\u5982\u679c\u653e\u4f1a\u63d0\u793a\u4e0d\u80fd\u4e3a\u7a7a', u'platMark': u'94004b13-6d67-4339-9816-5b728066e35a', u'isInternet': 0}]
+pageSize &lt;===&gt; 10
+totalRows &lt;===&gt; 1
+totalPage &lt;===&gt; 1
+restCount &lt;===&gt; 0
+empty &lt;===&gt; False
+http://10.1.0.44/middlecenter/service/guest/api/v1/auth/tenant/select
+test end
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_selectGrade.TestAdd: 测试selectGrade</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c5',1)">Detail</a></td>
+</tr>
+
+<tr id='pt5.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_getNavigation: 测试selectGrade</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.1')" >
+        pass</a>
+
+    <div id='div_pt5.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.1: test start
+pageIndex
+rows
+pageSize
+totalRows
+totalPage
+restCount
+empty
+pageIndex &lt;===&gt; 1
+rows &lt;===&gt; [{u'status': 1, u'uuid': u'0a7296ef-6644-437d-8620-bfcb27a093f4', u'baseType': {u'status': 1, u'statistics': None, u'uuid': u'd309aece-f56c-42f7-ade1-bf4bc77217bd', u'typeCode': u'0101', u'typeName': u'\u5c0f\u5b66', u'kindId': u'1ca5ef9a-bf7b-4685-953c-b86ba662ecbe', u'baseKind': [], u'kindCode': u'01', u'description': u'\u5c0f\u5b66'}, u'versiondesc': u'\u5c0f\u5b66', u'gradeType': u'd309aece-f56c-42f7-ade1-bf4bc77217bd', u'createtime': 1453949786000L, u'gradeName': u'\u4e00\u5e74\u7ea7'}, {u'status': 1, u'uuid': u'0a9542ef-6644-437d-8620-bfcb27a846f1', u'baseType': {u'status': 1, u'statistics': None, u'uuid': u'd309aece-f56c-42f7-ade1-bf4bc77217bd', u'typeCode': u'0101', u'typeName': u'\u5c0f\u5b66', u'kindId': u'1ca5ef9a-bf7b-4685-953c-b86ba662ecbe', u'baseKind': [], u'kindCode': u'01', u'description': u'\u5c0f\u5b66'}, u'versiondesc': u'\u5c0f\u5b66', u'gradeType': u'd309aece-f56c-42f7-ade1-bf4bc77217bd', u'createtime': 1453949790000L, u'gradeName': u'\u4e8c\u5e74\u7ea7'}, {u'status': 1, u'uuid': u'1f86638f-433b-4541-8302-aa623167fcb7', u'baseType': {u'status': 1, u'statistics': None, u'uuid': u'd309aece-f56c-42f7-ade1-bf4bc77217bd', u'typeCode': u'0101', u'typeName': u'\u5c0f\u5b66', u'kindId': u'1ca5ef9a-bf7b-4685-953c-b86ba662ecbe', u'baseKind': [], u'kindCode': u'01', u'description': u'\u5c0f\u5b66'}, u'versiondesc': u'\u5c0f\u5b66', u'gradeType': u'd309aece-f56c-42f7-ade1-bf4bc77217bd', u'createtime': 1453949807000L, u'gradeName': u'\u4e09\u5e74\u7ea7'}, {u'status': 1, u'uuid': u'1f86638f-433b-4541-8302-aa985495fcb9', u'baseType': {u'status': 1, u'statistics': None, u'uuid': u'd309aece-f56c-42f7-ade1-bf4bc77217bd', u'typeCode': u'0101', u'typeName': u'\u5c0f\u5b66', u'kindId': u'1ca5ef9a-bf7b-4685-953c-b86ba662ecbe', u'baseKind': [], u'kindCode': u'01', u'description': u'\u5c0f\u5b66'}, u'versiondesc': u'\u5c0f\u5b66', u'gradeType': u'd309aece-f56c-42f7-ade1-bf4bc77217bd', u'createtime': 1453949811000L, u'gradeName': u'\u56db\u5e74\u7ea7'}, {u'status': 1, u'uuid': u'2ca57f11-6f4d-455b-88a2-b297171b0471', u'baseType': {u'status': 1, u'statistics': None, u'uuid': u'd309aece-f56c-42f7-ade1-bf4bc77217bd', u'typeCode': u'0101', u'typeName': u'\u5c0f\u5b66', u'kindId': u'1ca5ef9a-bf7b-4685-953c-b86ba662ecbe', u'baseKind': [], u'kindCode': u'01', u'description': u'\u5c0f\u5b66'}, u'versiondesc': u'\u5c0f\u5b66', u'gradeType': u'd309aece-f56c-42f7-ade1-bf4bc77217bd', u'createtime': 1453949814000L, u'gradeName': u'\u4e94\u5e74\u7ea7'}, {u'status': 1, u'uuid': u'311d1871-f4c2-46c2-83d5-ca7eaf4b60ef', u'baseType': {u'status': 1, u'statistics': None, u'uuid': u'd309aece-f56c-42f7-ade1-bf4bc77217bd', u'typeCode': u'0101', u'typeName': u'\u5c0f\u5b66', u'kindId': u'1ca5ef9a-bf7b-4685-953c-b86ba662ecbe', u'baseKind': [], u'kindCode': u'01', u'description': u'\u5c0f\u5b66'}, u'versiondesc': u'\u5c0f\u5b66', u'gradeType': u'd309aece-f56c-42f7-ade1-bf4bc77217bd', u'createtime': 1453949816000L, u'gradeName': u'\u516d\u5e74\u7ea7'}, {u'status': 1, u'uuid': u'69a71de4-c4f0-4c5a-95a6-439ac8deb36e', u'baseType': {u'status': 1, u'statistics': None, u'uuid': u'c78abe27-3404-43c0-b3c3-6b551d29415c', u'typeCode': u'0102', u'typeName': u'\u4e2d\u5b66', u'kindId': u'1ca5ef9a-bf7b-4685-953c-b86ba662ecbe', u'baseKind': [], u'kindCode': u'01', u'description': u'\u4e2d\u5b66'}, u'versiondesc': u'\u4e2d\u5b66', u'gradeType': u'c78abe27-3404-43c0-b3c3-6b551d29415c', u'createtime': 1453949818000L, u'gradeName': u'\u4e00\u5e74\u7ea7'}, {u'status': 1, u'uuid': u'8d5fb27a-ccdc-4900-87bc-09cf31d8d81c', u'baseType': {u'status': 1, u'statistics': None, u'uuid': u'c78abe27-3404-43c0-b3c3-6b551d29415c', u'typeCode': u'0102', u'typeName': u'\u4e2d\u5b66', u'kindId': u'1ca5ef9a-bf7b-4685-953c-b86ba662ecbe', u'baseKind': [], u'kindCode': u'01', u'description': u'\u4e2d\u5b66'}, u'versiondesc': u'\u4e2d\u5b66', u'gradeType': u'c78abe27-3404-43c0-b3c3-6b551d29415c', u'createtime': 1453949821000L, u'gradeName': u'\u4e8c\u5e74\u7ea7'}, {u'status': 1, u'uuid': u'96515f6a-175e-4dc3-9243-e3188619167f', u'baseType': {u'status': 1, u'statistics': None, u'uuid': u'c78abe27-3404-43c0-b3c3-6b551d29415c', u'typeCode': u'0102', u'typeName': u'\u4e2d\u5b66', u'kindId': u'1ca5ef9a-bf7b-4685-953c-b86ba662ecbe', u'baseKind': [], u'kindCode': u'01', u'description': u'\u4e2d\u5b66'}, u'versiondesc': u'\u4e2d\u5b66', u'gradeType': u'c78abe27-3404-43c0-b3c3-6b551d29415c', u'createtime': 1453949824000L, u'gradeName': u'\u4e09\u5e74\u7ea7'}, {u'status': 1, u'uuid': u'ca21ab76-0ae7-4f6d-ac32-3d1e0a9e551f', u'baseType': {u'status': 1, u'statistics': None, u'uuid': u'797f9577-47c4-4a85-aa55-8abe43dfedc9', u'typeCode': u'0103', u'typeName': u'\u9ad8\u4e2d', u'kindId': u'1ca5ef9a-bf7b-4685-953c-b86ba662ecbe', u'baseKind': [], u'kindCode': u'01', u'description': u'\u9ad8\u4e2d'}, u'versiondesc': u'\u9ad8\u4e2d', u'gradeType': u'797f9577-47c4-4a85-aa55-8abe43dfedc9', u'createtime': 1453949827000L, u'gradeName': u'\u4e00\u5e74\u7ea7'}]
+pageSize &lt;===&gt; 10
+totalRows &lt;===&gt; 12
+totalPage &lt;===&gt; 2
+restCount &lt;===&gt; 2
+empty &lt;===&gt; False
+http://10.1.0.44/middlecenter/service/guest/api/v1/base/grade/selectGrade
+test end
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>5</td>
+    <td>5</td>
+    <td>0</td>
+    <td>0</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>

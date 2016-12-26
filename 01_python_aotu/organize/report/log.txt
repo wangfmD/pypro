@@ -1,0 +1,13 @@
+....test start
+test end
+test start
+test end
+test start
+test end
+test start
+test end
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK

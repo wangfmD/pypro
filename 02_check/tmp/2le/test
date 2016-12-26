@@ -1,0 +1,58 @@
+1，借用wklken大神的k-vim
+	git clone https://github.com/wklken/k-vim.git
+  
+2，安装必要包
+	yum install -y python-devel.x86_64
+	sudo yum groupinstall 'Development Tools'
+	sudo yum install the_silver_searcher
+	sudo yum install cmake
+	pip install pyflakes
+	pip install pylint
+	pip install pep8
+
+	若pip安装没有安装，先安装
+	sudo yum -y install epel-release
+	yum -y install python-pip
+	
+3,安装插件管理工具vim-plug
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	
+	
+4，安装vim
+	参照(https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source)
+	
+	1）First, install all the prerequisite libraries
+	yum install -y ruby ruby-devel lua lua-devel luajit \
+    luajit-devel ctags git python python-devel \
+    python3 python3-devel tcl-devel \
+    perl perl-devel perl-ExtUtils-ParseXS \
+    perl-ExtUtils-XSpp perl-ExtUtils-CBuilder \
+    perl-ExtUtils-Embed
+	
+	2)install vim
+	cd ~
+	git clone https://github.com/vim/vim.git
+	cd vim
+	./configure --with-features=huge \
+				--enable-multibyte \
+				--enable-rubyinterp \
+				--enable-pythoninterp \
+				--with-python-config-dir=/usr/lib/python2.7/config \
+				--enable-perlinterp \
+				--enable-luainterp \
+				--enable-gui=gtk2 --enable-cscope --prefix=/usr
+	make VIMRUNTIMEDIR=/usr/share/vim/vim74
+	sudo make install
+	
+	--help
+	如果提configure时提示缺少终端库，安装：
+	yum install ncurses-libs
+	yum install ncurses-devel
+
+5，安装k-vim
+	cd k-vim/
+	sh install.sh
+	
+	
+	
